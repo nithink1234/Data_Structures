@@ -1,9 +1,0 @@
-Arrays
-
->> Find unique element in array 
-	HashSet .. Time O(n)  Space 			O(n)/O(n)
-	For int[] XOR all elements 				O(n)/O(1)
-		char[] Boolean arrary[128] 			O(n)/O(1)
-		String[] 								??  
-
->> 
