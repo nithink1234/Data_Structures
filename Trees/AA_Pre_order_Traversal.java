@@ -1,3 +1,5 @@
+
+import java.util.*;
 public class AA_Pre_order_Traversal extends BinaryTree{
 
 	public static void main(String[] args) {
@@ -17,6 +19,8 @@ public class AA_Pre_order_Traversal extends BinaryTree{
 		bt.root.right.right.left.right = new TreeNode(14);
 		
 		pre_order_recursion(bt.root);
+		
+		preOrderIterative(bt.root);
 
 	}
 
@@ -31,4 +35,30 @@ public class AA_Pre_order_Traversal extends BinaryTree{
 		pre_order_recursion(Root.right);
 		
 	}
+	
+	// Use a stack .. Pop .. print ..put left n then right.. repeat 
+	static void preOrderIterative (TreeNode root) {
+		
+		if(root != null) {
+			Stack<TreeNode> st = new Stack<TreeNode>();
+			st.add(root);
+			
+			TreeNode current = null;
+			
+			while(!st.isEmpty()) {
+				
+				current = st.pop();
+				System.out.print (current.data + " ");
+				
+				if(current.right != null)
+					st.add(current.right);
+				
+				if(current.left != null)
+					st.add(current.left);
+			}
+		}
+		
+	}
+	
+	
 }

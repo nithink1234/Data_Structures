@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class AC_Post_order_Traversal extends BinaryTree{
 
 	public static void main(String[] args) {
@@ -19,6 +19,7 @@ public class AC_Post_order_Traversal extends BinaryTree{
 		
 		
 		Post_order_Recursion(bt.root);
+		postOrderIteravtive(bt.root);
 	}
 
 	
@@ -31,5 +32,31 @@ public class AC_Post_order_Traversal extends BinaryTree{
 		Post_order_Recursion(root.left);
 		Post_order_Recursion(root.right);
 		System.out.println(root.data);
+	}
+	
+	static void postOrderIteravtive(TreeNode root) {
+		
+		Stack<TreeNode> st1 = new Stack<TreeNode>();
+		Stack<TreeNode> st2 = new Stack<TreeNode>();
+		TreeNode current = null;
+		
+		st1.push(root);
+		
+		while(!st1.isEmpty()) {
+			
+			current = st1.pop();		
+			st2.add(current); 
+			
+			if(current.left != null)
+				st1.add(current.left);
+			
+			if(current.right != null)
+				st1.add(current.right);
+		}
+		
+		while(!st2.isEmpty()) {
+			System.out.print(st2.pop().data + " ");
+			
+		}
 	}
 }
