@@ -35,14 +35,14 @@ public class longestCommonPrefix {
 			// if it does move on to next one  and repeate 
 			// it finally reduced to the longest common one 
 			while(strs[i].indexOf(first) != 0) {
-				 System.out.println( i + " " + strs[i].indexOf(first) + " " + first );
+				// System.out.println( i + " " + strs[i].indexOf(first) + " " + first );
 				first = first.substring(0, first.length()-1);
 				
 				if(first.length() == 0)
 					return "";
 			}
 			
-			System.out.println( i + " out " + strs[i].indexOf(first) + " " + first );
+			//System.out.println( i + " out " + strs[i].indexOf(first) + " " + first );
  		}
 		return first;
 	}
