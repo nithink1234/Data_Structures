@@ -19,11 +19,25 @@ public class AR_Mirror_Invert_Tree {
 		
 	}
 	
-	
-	static void mirror_tree(TreeNode root) {
+	// swap lowest first and then keep going up 
+	// Go to left and then right .. 
+	// When it is leaf node because its childs are null nothing happens
+	// when it returns to the node above that it swaps and goes up again
+	static TreeNode mirror_tree(TreeNode root) {
 		
+		TreeNode temp ;
 		
+		if(root != null) {
+			
+			mirror_tree(root.left);
+			mirror_tree(root.right);
+			
+			temp = root.left;
+			root.left = root.right;
+			root.right = temp;
+		}
 		
+		return root;
 	}
 
 }
