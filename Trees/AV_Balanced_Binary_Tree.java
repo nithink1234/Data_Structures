@@ -9,12 +9,10 @@ public class AV_Balanced_Binary_Tree {
 		bt.root = new TreeNode(5);
 		bt.root.left = new TreeNode(4);
 		bt.root.right = new TreeNode(8);
-		bt.root.left.left = new TreeNode(11);
 		bt.root.right.left = new TreeNode(13);
 		bt.root.right.right = new TreeNode(4);
 		bt.root.right.right.right = new TreeNode(1);
-		bt.root.left.left.left = new TreeNode(7);
-		bt.root.left.left.right = new TreeNode(2);
+
 
 		System.out.println(balancedBinaryTree(bt.root));
 	}
@@ -39,7 +37,7 @@ public class AV_Balanced_Binary_Tree {
 			current = q.poll();
 			currentnodes++;
 			
-			if(current == null) {
+			if(current == null & !q.isEmpty()) {
 				
 				currentlevel ++ ;
 				
@@ -51,19 +49,19 @@ public class AV_Balanced_Binary_Tree {
 				}
 				
 				prevnodes = currentnodes;
+				lastbalancedlevel = currentlevel;
+				currentnodes = 0;
 				
 				q.add(null);
 			}
 			
-			else {
+			else if (current != null) {
 				if(current.left != null)
 					q.add(current.left);
 				
 				if(current.right != null)
 					q.add(current.right);
 			}
-
-			
 		}
 		
 		return true;
