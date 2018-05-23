@@ -1,5 +1,6 @@
 import java.util.*;
 public class AV_Balanced_Binary_Tree {
+	private static boolean result = true;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -15,8 +16,32 @@ public class AV_Balanced_Binary_Tree {
 
 
 		System.out.println(balancedBinaryTree(bt.root));
+		
+		System.out.println(balanced(bt.root));
 	}
 
+	
+	static boolean balanced(TreeNode root) {
+		maxdepth(root);
+		return result;
+	}
+	
+	static int maxdepth(TreeNode root) {
+		
+		if(root == null) {
+			return 0;
+		}
+		
+		int left = maxdepth(root.left);
+		int right = maxdepth(root.right);
+		
+		if(Math.abs(left - right) > 1)
+			result = false;
+		
+		return 1 + Math.max(left, right);
+	}
+	
+	
 	
 	static boolean balancedBinaryTree(TreeNode root) {
 		
